@@ -1,0 +1,141 @@
+@import url('reset.css');
+
+/* colors */
+:root {
+   --icon-grey: #8e8e8e;
+   --icon-lite: #f1fff1; 
+   --blue: #016CFF;
+   --red: #FF194C;
+   --electric-blue: #06FFFF;
+}
+
+
+body {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #3d3d3d;
+   height: 100vh;
+}
+
+section {
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+   width: 100%;
+}
+img {
+   filter: invert(59%) sepia(2%) saturate(23%) hue-rotate(30deg) brightness(97%) contrast(78%);
+}
+#main-container{
+   display: flex;
+   justify-content:flex-start;
+   align-items: center;
+   flex-direction: column;
+   width: 300px;
+   height: 500px;
+   padding: 25px;
+   background-color: grey;
+}
+#menu-items-section {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #333;
+}
+.menu-icon-wrapper {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+   gap: 20px;
+   padding: 15px;
+}
+
+.menu-icon {
+   width: 32px;
+   height: 32px;
+   border-radius: 10px;
+   gap: 10px;
+   filter: invert(59%) sepia(2%) saturate(23%) hue-rotate(30deg) brightness(97%) contrast(78%);
+}
+
+/* +++++ START TIME TEMP SECTION STYLING +++++ */
+#time-temp-section {
+   background-color: #333;
+}
+/* START FAN UI WRAPPER STYLING */
+.fan-ui-wrapper {
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   height: 80px;
+   background-color: #333;
+}
+.fan-blade-icon {
+   position: absolute;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 8px;
+   height: auto;
+}
+.fan-blade-icon:nth-child(1) {
+   left: 119px;
+   top: 11px;
+   transform: rotate(65deg);
+}
+.fan-blade-icon:nth-child(2) {
+   left: 137px;
+   top: 27px;
+   transform: rotate(114deg);
+   filter: invert(32%) sepia(86%) saturate(3800%) hue-rotate(206deg) brightness(98%) contrast(112%);
+}
+.fan-blade-icon:nth-child(3) {
+   left: 131px;
+   top: 49px;
+   transform: rotate(181deg);
+}
+.fan-blade-icon:nth-child(4) {
+   left: 109px;
+   top: 56px;
+   transform: rotate(236deg);
+}
+.fan-blade-icon:nth-child(5) {
+   left: 90px;
+   top: 41px;
+   transform: rotate(290deg);
+   filter: invert(32%) sepia(86%) saturate(3800%) hue-rotate(206deg) brightness(98%) contrast(112%);
+}
+.fan-blade-icon:nth-child(6) {
+   left: 95px;
+   top: 17px;
+   transform: rotate(356deg);
+}
+.heat-icon {
+   position: absolute;
+   left: 103px;
+   top: 27px;
+   /* background-color: white; */
+   border-radius: 50px;
+   padding: 8px;
+   color: var(--red);
+   font-size: 0.8rem;
+}
+/* END FAN UI WRAPPER STYLING */
+
+/* START DIGITAL DISPLAY STYLING */
+.digital-display-wrapper {
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   background-color: #333;
+}
+/* END DIGITAL DISPLAY STYLING */
+/* +++++ END POWER SECTION STYLING +++++ */
