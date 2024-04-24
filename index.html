@@ -18,7 +18,7 @@
    <div id="main-container">
       <section id="menu-items-section">
          <div class="menu-icon-wrapper">
-            <img class="menu-icon" src="assets/images/icons/french-fries.png">
+            <img class="menu-icon active-img-icon" src="assets/images/icons/french-fries.png">
             <img class="menu-icon" src="assets/images/icons/lamb.png">
             <img class="menu-icon" src="assets/images/icons/shrimp.png">
             <img class="menu-icon" src="assets/images/icons/cake.png">
@@ -36,7 +36,9 @@
             <img class="fan-blade-icon" src="assets/images/icons/spin-icon-a.png" alt="" >
             <img class="fan-blade-icon" src="assets/images/icons/spin-icon-a.png" alt="" >
             <img class="fan-blade-icon" src="assets/images/icons/spin-icon-a.png" alt="" >
-            <i class="fa-solid fa-certificate heat-icon"></i>
+            <div class="heat-icon-wrapper heat-on">
+               <i class="fa-solid fa-certificate"></i>
+            </div></i>
          </div>
 
          <div class="digital-display-wrapper">
@@ -56,16 +58,16 @@
       <section id="controls-section">
          <div class="control-buttons-container">
             <div class="temp-buttons-wrapper">
-               <button type="button"><i class="fa-solid fa-plus"></i></button>
-               <button type="button">temp minus</button>
+               <button type="button" class="temp-plus-btn"><i class="fa-solid fa-plus"></i></button>
+               <button type="button" class="temp-minus-btn"><i class="fa-solid fa-minus"></i></button>
             </div>
             <div class="selection-buttons-wrapper">
-               <button type="button">menu button</button>
-               <button type="button">power button</button>
+               <button type="button" class="menu-btn active-icon active-icon-border">M</button>
+               <button type="button" class="power-btn"><i class="fa-solid fa-power-off"></i></button>
             </div>
             <div class="time-buttons-wrapper">
-               <button type="button">time plus</button>
-               <button type="button">time minus</button>
+               <button type="button" class="time-plus-btn"><i class="fa-solid fa-plus"></i></button>
+               <button type="button" class="time-minus-btn"><i class="fa-solid fa-minus"></i></button>
             </div>
          </div>
       </section>
