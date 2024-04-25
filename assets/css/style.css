@@ -3,6 +3,10 @@
 /* colors */
 :root {
    --icon-grey: #8e8e8e;
+   --fan-blade-icon-grey: invert(54%) sepia(17%) saturate(0%) hue-rotate(290deg) brightness(101%) contrast(87%);
+   --fan-blade-icon-lite: invert(32%) sepia(86%) saturate(3800%) hue-rotate(206deg) brightness(98%) contrast(112%);
+   --menu-icon-grey: invert(54%) sepia(17%) saturate(0%) hue-rotate(290deg) brightness(101%) contrast(87%);
+   --menu-icon-lite: invert(91%) sepia(9%) saturate(377%) hue-rotate(71deg) brightness(108%) contrast(104%);
    --icon-lite: #f1fff1; 
    --blue: #016CFF;
    --red: #FF194C;
@@ -28,9 +32,9 @@ section {
    flex-wrap: wrap;
    width: 100%;
 }
-img {
+/* img {
    filter: invert(59%) sepia(2%) saturate(23%) hue-rotate(30deg) brightness(97%) contrast(78%);
-}
+} */
 button {
    display: flex;
    justify-content: center;
@@ -42,16 +46,21 @@ button {
    border: 3px solid var(--icon-grey);
    color: var(--icon-grey);
 }
-.active-img-icon {
-   filter: invert(91%) sepia(9%) saturate(377%) hue-rotate(71deg) brightness(108%) contrast(104%) !important;
+.active-menu-icon {
+   filter: var(--menu-icon-lite);
+}
+.active-fan-blade-icon {
+   filter: var(--fan-blade-icon-lite)!important; 
 }
 .active-icon {
-   color: var(--icon-lite)
+   color: var(--icon-lite);
 }
 .active-icon-border {
    border-color: var(--icon-lite);
 }
-
+.active-temp-symbol {
+   color: var(--blue);
+}
 
 #main-container{
    display: flex;
@@ -84,7 +93,8 @@ button {
    width: 32px;
    height: 32px;
    border-radius: 10px;
-   filter: invert(59%) sepia(2%) saturate(23%) hue-rotate(30deg) brightness(97%) contrast(78%);
+   /* filter: invert(59%) sepia(2%) saturate(23%) hue-rotate(30deg) brightness(97%) contrast(78%); */
+   filter: var(--menu-icon-grey);
 }
 /* END MENU SECTION STYLING
    ========================  */
@@ -111,6 +121,7 @@ button {
    align-items: center;
    width: 8px;
    height: auto;
+   filter: var(--fan-blade-icon-grey);
 }
 .fan-blade-icon:nth-child(1) {
    left: 119px;
@@ -121,7 +132,7 @@ button {
    left: 137px;
    top: 27px;
    transform: rotate(114deg);
-   filter: invert(32%) sepia(86%) saturate(3800%) hue-rotate(206deg) brightness(98%) contrast(112%);
+   /* filter: invert(32%) sepia(86%) saturate(3800%) hue-rotate(206deg) brightness(98%) contrast(112%); */
 }
 .fan-blade-icon:nth-child(3) {
    left: 131px;
@@ -137,7 +148,7 @@ button {
    left: 90px;
    top: 41px;
    transform: rotate(290deg);
-   filter: invert(32%) sepia(86%) saturate(3800%) hue-rotate(206deg) brightness(98%) contrast(112%);
+   /* filter: invert(32%) sepia(86%) saturate(3800%) hue-rotate(206deg) brightness(98%) contrast(112%); */
 }
 .fan-blade-icon:nth-child(6) {
    left: 95px;
@@ -151,10 +162,10 @@ button {
    /* background-color: white; */
    border-radius: 50px;
    padding: 8px;
-   color: #3e3e3e;
+   color: var(--icon-grey);
    font-size: 0.8rem;
 }
-.heat-on {
+.active-heat-icon {
    color: var(--red); 
 }
 /* END FAN UI WRAPPER STYLING
