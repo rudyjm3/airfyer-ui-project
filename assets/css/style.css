@@ -51,6 +51,8 @@ button {
 .active-icon-border {
    border-color: var(--icon-lite);
 }
+
+
 #main-container{
    display: flex;
    justify-content:flex-start;
@@ -202,7 +204,8 @@ button {
 .temp-symbol-wrapper p {
    font-size: 25px;
 }
-/* END DIGITAL DISPLAY STYLING */
+/* END DIGITAL DISPLAY STYLING
+   =========================== */
 
 /* + START CONTROL PANEL STYLING + */
 .control-buttons-container {
@@ -231,9 +234,11 @@ button {
 .menu-btn {
    font-family: 'Roboto';
 }
+.power-btn {
+   border-color: var(--icon-lite);
+   color: var(--icon-lite);
+}
 /* = END CONTROL PANEL STYLING = */
-
-
 
 /* END POWER SECTION STYLING
    =========================
