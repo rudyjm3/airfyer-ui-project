@@ -2,6 +2,9 @@ const powerBtn = document.getElementsByClassName('power-btn')[0];
 const controlBtns = document.querySelectorAll('button');
 const menuIcons = document.querySelectorAll('.menu-icon');
 const menuBtn = document.getElementsByClassName('menu-btn')[0];
+const digitalDisplayContent = document.getElementsByClassName('digital-readout')[0];
+const tempSymbol = document.getElementsByClassName('temp-symbol')[0];
+const timeSymbol = document.getElementsByClassName('time-symbol')[0];
 
 
 // Airfyer Object
@@ -42,8 +45,7 @@ let airfyerUnit = {
    },
    powerOn: function() {
       this.power = true;
-      let digitalDisplyContent = document.getElementsByClassName('digital-readout')[0].innerText = '350';
-      let tempSymbol = document.getElementsByClassName('temp-symbol')[0];
+      digitalDisplayContent.innerText = this.temperature;
       tempSymbol.classList.add('active-temp-symbol');
       controlBtns.forEach(btn => {
          btn.classList.add('active-icon');
@@ -53,8 +55,7 @@ let airfyerUnit = {
 
    powerOff: function() {  
       this.power = false;
-      let digitalDisplyContent = document.getElementsByClassName('digital-readout')[0].innerText = '---';
-      let tempSymbol = document.getElementsByClassName('temp-symbol')[0];
+      digitalDisplayContent.innerText = '---';
       tempSymbol.classList.remove('active-temp-symbol');
       controlBtns.forEach(btn => {
          btn.classList.remove('active-icon');
@@ -65,7 +66,7 @@ let airfyerUnit = {
    iteratePreprogrammedTemps: function() {
       // Get all keys (food types) from preprogramedTemps object
       let foodTypes = Object.keys(this.preprogrammedTemps);
-      // console.log(foodTypes);
+   
       // Check if currentIndex is within bounds
       if (this.currentIndex >= foodTypes.length) {
          this.currentIndex = 0; // Reset index if out of bounds
@@ -73,10 +74,69 @@ let airfyerUnit = {
       
       // Get the current food type based on currentIndex
       let currentFoodType = foodTypes[this.currentIndex];
-      
+      console.log("Food: " + currentFoodType + '<br> </br>' + "Index: " + this.currentIndex);
       // Retrieve the corresponding preprogrammed temperature
-      let selectedTemp = this.preprogrammedTemps[currentFoodType];
+      let selectedTemp = this.preprogrammedTemps[currentFoodType].temperature;
+      console.log(selectedTemp);
+
+      let selectedCookTime = this.preprogrammedTemps[currentFoodType].timer;
+      console.log(selectedCookTime);
+      this.temperature = selectedTemp;
+      this.timer = selectedCookTime;
+
+// WORKING ON THIS SECTION TO LOOP BETWEEN TEMP AND TIME EVERY 5 SECONDS
+      // Update the digital display
+      function UpdateDisplay() {
+         
+         // digitalDisplayContent.innerText = selectedTemp;
+         // tempSymbol.classList.add('active-temp-symbol');
+
+         // digitalDisplayContent.innerText = selectedCookTime;
+         // timeSymbol.classList.add('active-time-symbol');
+         let displayState = 0; // Initial display state (0 or 1)
+    
+         function toggleDisplay() {
+            if (displayState === 0) {
+                  // Display first block of code
+                  digitalDisplayContent.innerText = this.temperature;
+                  tempSymbol.classList.add('active-temp-symbol');
+                  timeSymbol.classList.remove('active-time-symbol');
+                  displayState = 1; // Switch to next display state
+            } else {
+                  // Display second block of code
+                  digitalDisplayContent.innerText = this.timer;
+                  tempSymbol.classList.remove('active-temp-symbol');
+                  timeSymbol.classList.add('active-time-symbol');
+                  displayState = 0; // Switch back to initial display state
+            }
+         };
+         
+         function loopUpdate() {
+            toggleDisplay(); // Toggle display initially
+
+            setInterval(() => {
+                  toggleDisplay(); // Toggle display every 5 seconds
+            }, 5000); // Interval set to 5000 milliseconds (5 seconds)
+         };
+         
+      };
+      UpdateDisplay();
+// ======================================================================
       
+      console.log(this);
+      const menuIconSelection = () => {
+         // Remove active-menu-icon class from all menu icons
+         menuIcons.forEach(icon => {
+            icon.classList.remove('active-menu-icon');
+            
+         });
+         // Illuminate the active menu icon
+            menuIcons[this.currentIndex].classList.add('active-menu-icon');
+            console.log(menuIcons[this.currentIndex]);
+
+      };
+      menuIconSelection(this.currentIndex);
+
       // Increment currentIndex for next click
       this.currentIndex++;
       
@@ -85,10 +145,11 @@ let airfyerUnit = {
    }
 };
 
-// Method to cycle through the preprogrammed temperatures
-let numberOfPreprogrammedTemps = Object.keys(airfyerUnit.preprogrammedTemps).length;
-// Log the number of preprogrammed temperatures
-console.log(numberOfPreprogrammedTemps);
+// -- BELOW COMMENTED OUT NOT NEEDED SINCE iteratePreprogrammedTemps:
+// // Method to cycle through the preprogrammed temperatures
+// let numberOfPreprogrammedTemps = Object.keys(airfyerUnit.preprogrammedTemps).length;
+// // Log the number of preprogrammed temperatures
+// console.log(numberOfPreprogrammedTemps);
 
 // Event Listeners
 powerBtn.addEventListener('click', (ele) => {
